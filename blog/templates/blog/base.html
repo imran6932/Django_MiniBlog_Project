@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Blog</title>
+    <link rel="stylesheet" href="{% static 'blog/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+</head>
+<body>
+    <div class="container-fluid bg-dark">
+        {% include 'blog/navbar.html' %}
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center my-3">
+                {% block msg %}
+                {% endblock msg %}
+            </div>
+        </div>
+        <div class="row">
+            {% block side %}
+            {% endblock side %}
+
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </div>
+    <div class="text-center mt-5">
+        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-square i-color fa-2x mr-3"></i></a>
+        <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter-square i-color fa-2x mr-3"></i></a>
+        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram-square i-color fa-2x mr-3"></i></a>
+        <a href="https://web.whatsapp.com/" target="_blank"><i class="fab fa-whatsapp-square i-color fa-2x mr-3"></i></a>
+        <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin i-color fa-2x mr-3"></i></a>
+        <a href="https://www.github.com" target="_blank"><i class="fab fa-github-square i-color fa-2x "></i></a>
+    </div>
+    <script src="{% static 'blog/js/jquery.js' %}"></script>
+    <script src="{% static 'blog/js/popper.js' %}"></script>
+    <script src="{% static 'blog/js/all.js' %}"></script>
+    <script src="{% static 'blog/js/bootstrap.js' %}"></script>
+</body>
+</html>
