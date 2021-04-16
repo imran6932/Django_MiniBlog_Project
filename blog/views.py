@@ -60,8 +60,10 @@ def user_signup(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
             messages.success(request, 'Your account created successfully')
+            group = Group.objects.get(name='Author')
+            user.groups.add(group)
             form = SignupForm()
             
     else:

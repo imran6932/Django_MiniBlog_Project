@@ -45,14 +45,18 @@
             <td class="text-justify">{{post.desc}} </td>
             <td class="text-center">
                 <a href="{% url 'updatepost' post.id %} " class="btn btn-warning btn-sm">Edit</a>
+                {% if perms.blog.delete_post %}
                 <form action="{% url 'deletepost' post.id %}" method="post" class="d-inline">
                 {% csrf_token %}
                 <input type="submit" value="Delete" class="btn btn-danger btn-sm">
                 </form>
+                {% endif %}
                 </td>
           </tr>
            {% endfor %}
         </tbody>
       </table>
+      {% else %}
+      <h4 class="alert alert-danger my-3 text-center">No Records</h4>
     {% endif %}
 {% endblock content %}
